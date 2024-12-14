@@ -10,6 +10,8 @@ interface FormData {
   message: string;
 }
 
+const WHATSAPP_NUMBER = '2348179651769';
+
 export default function BookingForm() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -23,10 +25,50 @@ export default function BookingForm() {
 
   const [step, setStep] = useState(1);
 
+  const formatDate = (date: string) => {
+    return new Date(date).toLocaleDateString('en-NG', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  const formatTime = (time: string) => {
+    return new Date(`2000/01/01 ${time}`).toLocaleTimeString('en-NG', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true
+    });
+  };
+
+  const getPurposeText = (purpose: string) => {
+    const purposes: { [key: string]: string } = {
+      meeting: 'Meeting Room',
+      workspace: 'Workspace',
+      event: 'Event Space',
+      training: 'Training Room'
+    };
+    return purposes[purpose] || purpose;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    
+    // Create WhatsApp message
+    const message = `*New Workspace Booking Request*%0A
+-----------------------------------%0A
+*Purpose:* ${getPurposeText(formData.purpose)}%0A
+*Date:* ${formatDate(formData.date)}%0A
+*Time:* ${formatTime(formData.time)}%0A
+%0A*Contact Details*%0A
+*Name:* ${formData.name}%0A
+*Email:* ${formData.email}%0A
+*Phone:* ${formData.phone}%0A
+${formData.message ? `%0A*Additional Information:*%0A${formData.message}` : ''}`;
+
+    // Open WhatsApp with pre-filled message
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -77,6 +119,7 @@ export default function BookingForm() {
                 name="date"
                 id="date"
                 required
+                min={new Date().toISOString().split('T')[0]}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 onChange={handleChange}
                 value={formData.date}
@@ -175,8 +218,9 @@ export default function BookingForm() {
               <button
                 type="submit"
                 className="w-1/2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
+                disabled={!formData.name || !formData.email || !formData.phone}
               >
-                Book Appointment
+                Submit Booking
               </button>
             </div>
           </div>
