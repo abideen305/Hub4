@@ -2,6 +2,9 @@ import React from 'react';
 import HeroSection from '../components/home/HeroSection';
 import AboutSection from '../components/home/AboutSection';
 import FeaturedServices from '../components/home/FeaturedServices';
+import FeaturedCourses from '../components/home/FeaturedCourses';
+import BookingSection from '../components/home/BookingSection';
+import PartnerSlider from '../components/home/PartnerSlider';
 import WhyChooseUs from '../components/home/WhyChooseUs';
 import Testimonials from '../components/Testimonials';
 import NewsletterSignup from '../components/home/NewsletterSignup';
@@ -13,6 +16,9 @@ export default function Home() {
       <AboutSection />
       <FeaturedServices />
       <WhyChooseUs />
+      <FeaturedCourses />
+      <BookingSection />
+      <PartnerSlider />
       <Testimonials />
       <NewsletterSignup />
       
