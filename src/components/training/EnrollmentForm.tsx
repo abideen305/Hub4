@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { useForm } from '@formspree/react';
+import { useForm, ValidationError } from '@formspree/react';
 import FormField from './form/FormField';
 import SuccessMessage from './form/SuccessMessage';
-import { useHistory } from 'react-router-dom';  // Import useHistory for redirection
+import { useHistory } from 'react-router-dom';
 
 interface EnrollmentFormProps {
   courseName: string;
@@ -11,12 +11,12 @@ interface EnrollmentFormProps {
 
 export default function EnrollmentForm({ courseName, onClose }: EnrollmentFormProps) {
   const [state, handleSubmit] = useForm("xanygqbd");
-  const history = useHistory();  // Initialize useHistory
+  const history = useHistory();
 
   useEffect(() => {
     if (state.succeeded) {
       setTimeout(() => {
-        history.push('/');  // Redirect to the main page after 3 seconds
+        history.push('/');
       }, 3000);
     }
   }, [state.succeeded, history]);
@@ -26,7 +26,7 @@ export default function EnrollmentForm({ courseName, onClose }: EnrollmentFormPr
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form action="https://formspree.io/f/xanygqbd" method="POST" onSubmit={handleSubmit} className="space-y-4">
       <input type="hidden" name="course" value={courseName} />
       
       <FormField
@@ -40,6 +40,11 @@ export default function EnrollmentForm({ courseName, onClose }: EnrollmentFormPr
         name="email"
         type="email"
         required
+      />
+      <ValidationError 
+        prefix="Email" 
+        field="email"
+        errors={state.errors}
       />
 
       <FormField
@@ -84,6 +89,13 @@ export default function EnrollmentForm({ courseName, onClose }: EnrollmentFormPr
           {state.submitting ? 'Submitting...' : 'Enroll Now'}
         </button>
       </div>
+      {state.errors.length > 0 && (
+        <div className="text-red-600">
+          {state.errors.map((error, index) => (
+            <p key={index}>{error.message}</p>
+          ))}
+        </div>
+      )}
     </form>
   );
 }
