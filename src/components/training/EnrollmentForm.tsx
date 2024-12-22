@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from '@formspree/react';
 import FormField from './form/FormField';
 import SuccessMessage from './form/SuccessMessage';
+import { useHistory } from 'react-router-dom';  // Import useHistory for redirection
 
 interface EnrollmentFormProps {
   courseName: string;
@@ -10,6 +11,15 @@ interface EnrollmentFormProps {
 
 export default function EnrollmentForm({ courseName, onClose }: EnrollmentFormProps) {
   const [state, handleSubmit] = useForm("xanygqbd");
+  const history = useHistory();  // Initialize useHistory
+
+  useEffect(() => {
+    if (state.succeeded) {
+      setTimeout(() => {
+        history.push('/');  // Redirect to the main page after 3 seconds
+      }, 3000);
+    }
+  }, [state.succeeded, history]);
 
   if (state.succeeded) {
     return <SuccessMessage onClose={onClose} />;
