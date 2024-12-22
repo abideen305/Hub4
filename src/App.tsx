@@ -8,10 +8,10 @@ import SocialMedia from './pages/SocialMedia';
 import Workspace from './pages/Workspace';
 import Careers from './pages/Careers';
 
-function App() {
+export default function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col overflow-x-hidden">
         <Navbar />
         <main className="flex-grow">
           <Routes>
@@ -27,5 +27,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;

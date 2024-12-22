@@ -104,26 +104,88 @@ export const courseCategories: CourseCategory[] = [
           virtual: 100000
         }
       },
-      // Add other financial courses...
-    ]
-  },
-  {
-    id: 'ei',
-    title: 'Emotional Intelligence',
-    description: 'Develop crucial soft skills for personal and professional growth',
-    icon: 'Heart',
-    courses: [
       {
-        id: 'self-awareness',
-        title: 'Self-Awareness',
-        description: 'Develop emotional awareness and management strategies.',
+        id: 'investment-strategies',
+        title: 'Investment Strategies',
+        description: 'Learn proven investment techniques for long-term financial growth.',
         pricing: {
           physical: 150000,
           hybrid: 120000,
           virtual: 100000
         }
       },
-      // Add other EI courses...
+      {
+        id: 'retirement-planning',
+        title: 'Retirement Planning',
+        description: 'Plan for a financially secure retirement.',
+        pricing: {
+          physical: 150000,
+          hybrid: 120000,
+          virtual: 100000
+        }
+      },
+      {
+        id: 'tax-management',
+        title: 'Tax Management',
+        description: 'Optimize your taxes and increase your savings.',
+        pricing: {
+          physical: 150000,
+          hybrid: 120000,
+          virtual: 100000
+        }
+      }
     ]
-  }
+  },
+      // Add other financial courses...
+   
+
+      {
+        id: 'ei',
+        title: 'Emotional Intelligence',
+        description: 'Develop crucial soft skills for personal and professional growth',
+        icon: 'Heart',
+        courses: [
+          {
+            id: 'self-awareness',
+            title: 'Self-Awareness',
+            description: 'Develop emotional awareness and management strategies.',
+            pricing: {
+              physical: 150000,
+              hybrid: 120000,
+              virtual: 100000
+            }
+          },
+          {
+            id: 'relationship-management',
+            title: 'Relationship Management',
+            description: 'Develop skills for effective relationship management.',
+            pricing: {
+              physical: 150000,
+              hybrid: 120000,
+              virtual: 100000
+            }
+          },
+          {
+            id: 'leadership-development',
+            title: 'Leadership Development',
+            description: 'Develop essential leadership skills and emotional intelligence.',
+            pricing: {
+              physical: 150000,
+              hybrid: 120000,
+              virtual: 100000
+            }
+          },
+          {
+            id: 'conflict-resolution',
+            title: 'Conflict Resolution',
+            description: 'Learn techniques for effective conflict resolution.',
+            pricing: {
+              physical: 150000,
+              hybrid: 120000,
+              virtual: 100000
+            }
+          }
+        ]
+      }
+
 ];
