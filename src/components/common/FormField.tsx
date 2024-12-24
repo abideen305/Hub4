@@ -17,41 +17,52 @@ export default function FormField({
   required = false,
   as = 'input',
   children,
-  rows
+  rows = 3
 }: FormFieldProps) {
-  const baseClassName = "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500";
+  const baseClassName = "mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500";
   
+  const renderField = () => {
+    switch (as) {
+      case 'select':
+        return (
+          <select
+            id={name}
+            name={name}
+            required={required}
+            className={baseClassName}
+          >
+            {children}
+          </select>
+        );
+      case 'textarea':
+        return (
+          <textarea
+            id={name}
+            name={name}
+            rows={rows}
+            required={required}
+            className={baseClassName}
+          />
+        );
+      default:
+        return (
+          <input
+            type={type}
+            id={name}
+            name={name}
+            required={required}
+            className={baseClassName}
+          />
+        );
+    }
+  };
+
   return (
     <div>
       <label htmlFor={name} className="block text-sm font-medium text-gray-700">
-        {label}
+        {label} {required && <span className="text-red-500">*</span>}
       </label>
-      {as === 'select' ? (
-        <select
-          name={name}
-          id={name}
-          required={required}
-          className={baseClassName}
-        >
-          {children}
-        </select>
-      ) : as === 'textarea' ? (
-        <textarea
-          name={name}
-          id={name}
-          rows={rows}
-          required={required}
-          className={baseClassName}
-        />
-      ) : (
-        <input
-          type={type}
-          name={name}
-          id={name}
-          required={required}
-          className={baseClassName}
-        />
-      )}
+      {renderField()}
     </div>
   );
 }
