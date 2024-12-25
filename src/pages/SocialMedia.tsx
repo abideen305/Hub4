@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PageHeader from '../components/PageHeader';
 import ServiceOverview from '../components/social/ServiceOverview';
 import PlatformCard from '../components/social/PlatformCard';
 import ProcessSteps from '../components/social/ProcessSteps';
+import ContactForm from '../components/social/ContactForm';
+import WhatsAppButton from '../components/WhatsAppButton';
 import { Instagram, Facebook, Twitter, Linkedin } from 'lucide-react';
 
 const platforms = [
@@ -53,6 +55,8 @@ const platforms = [
 ];
 
 export default function SocialMedia() {
+  const [showContactForm, setShowContactForm] = useState(false);
+
   return (
     <div className="pt-16">
       <PageHeader
@@ -97,11 +101,26 @@ export default function SocialMedia() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-8">Ready to Grow Your Social Media Presence?</h2>
           <p className="text-xl text-white mb-8">Let's discuss how we can help you achieve your social media goals.</p>
-          <a href="mailto:info@hub4.org" className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition duration-300">
+          <button 
+            onClick={() => setShowContactForm(true)}
+            className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition duration-300"
+          >
             Get Started
-          </a>
+          </button>
         </div>
       </section>
+
+      {/* Contact Form Modal */}
+      {showContactForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg p-6 max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <h2 className="text-2xl font-bold mb-6">Get Started with Social Media Management</h2>
+            <ContactForm onClose={() => setShowContactForm(false)} />
+          </div>
+        </div>
+      )}
+
+      <WhatsAppButton />
     </div>
   );
 }
