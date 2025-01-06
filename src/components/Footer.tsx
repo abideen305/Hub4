@@ -2,6 +2,12 @@ import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
+  const socialLinks = [
+    { name: 'Facebook', url: 'https://web.facebook.com/profile.php?id=61570814582976' },
+    { name: 'Twitter', url: 'https://x.com/hub4official' },
+    { name: 'Instagram', url: 'https://www.instagram.com/hub4official/' }
+  ];
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -36,10 +42,17 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-blue-400">Facebook</a>
-              <a href="#" className="hover:text-blue-400">Twitter</a>
-              <a href="#" className="hover:text-blue-400">LinkedIn</a>
-              <a href="#" className="hover:text-blue-400">Instagram</a>
+              {socialLinks.map((link) => (
+                <a 
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="hover:text-blue-400"
+                >
+                  {link.name}
+                </a>
+              ))}
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ import Training from './pages/Training';
 import SocialMedia from './pages/SocialMedia';
 import Workspace from './pages/Workspace';
 import Careers from './pages/Careers';
+import MasterClass from './pages/MasterClass';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/social-media" element={<SocialMedia />} />
             <Route path="/workspace" element={<Workspace />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/masterclass" element={<MasterClass />} />
           </Routes>
         </main>
         <Footer />
