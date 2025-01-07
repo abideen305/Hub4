@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Laptop } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
@@ -20,8 +20,11 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <Laptop className="h-8 w-8 text-blue-600" />
-              <span className="text-xl font-bold text-gray-900">Hub4</span>
+              <img 
+                src="https://i.ibb.co/pJVSvSb/hub4-logo-new.png" 
+                alt="Hub4 Logo" 
+                className="h-12"
+              />
             </Link>
           </div>
           
@@ -30,7 +33,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium"
               >
                 {item.name}
               </Link>
@@ -55,7 +58,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
+                className="text-gray-600 hover:text-primary block px-3 py-2 rounded-md text-base font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}

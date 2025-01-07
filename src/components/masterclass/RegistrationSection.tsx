@@ -3,7 +3,11 @@ import { useForm } from '@formspree/react';
 import FormField from '../common/FormField';
 
 export default function RegistrationSection() {
-  const [state, handleSubmit] = useForm("meoojwep");
+  const [state, handleSubmit] = useForm("myzzbvoa");
+  const availableDates = [
+    '2025-01-11', '2025-01-18', '2025-01-25',
+    '2025-01-12', '2025-01-19', '2025-01-26'
+  ];
 
   if (state.succeeded) {
     return (
@@ -60,6 +64,12 @@ export default function RegistrationSection() {
               <option value="virtual">Virtual (Online)</option>
             </FormField>
             <FormField
+              label="Preferred Date"
+              name="date"
+              type="date"
+              required
+            />
+            <FormField
               label="Additional Information"
               name="message"
               as="textarea"
@@ -68,7 +78,7 @@ export default function RegistrationSection() {
             <button
               type="submit"
               disabled={state.submitting}
-              className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 disabled:opacity-50"
+              className="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition duration-300 disabled:opacity-50"
             >
               {state.submitting ? 'Submitting...' : 'Join the Master Class!'}
             </button>

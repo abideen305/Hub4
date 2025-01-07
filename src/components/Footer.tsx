@@ -21,7 +21,7 @@ export default function Footer() {
               </p>
               <p className="flex items-center">
                 <Phone className="h-5 w-5 mr-2" />
-                08133048918, 08179651769
+                08030805821
               </p>
               <p className="flex items-center">
                 <Mail className="h-5 w-5 mr-2" />
@@ -33,9 +33,9 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="/training" className="hover:text-blue-400">Training Programs</a></li>
-              <li><a href="/social-media" className="hover:text-blue-400">Social Media Management</a></li>
-              <li><a href="/workspace" className="hover:text-blue-400">Workspace Rental</a></li>
+              <li><a href="/training" className="hover:text-primary">Training Programs</a></li>
+              <li><a href="/social-media" className="hover:text-primary">Social Media Management</a></li>
+              <li><a href="/workspace" className="hover:text-primary">Workspace Rental</a></li>
             </ul>
           </div>
           
@@ -48,7 +48,7 @@ export default function Footer() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer" 
-                  className="hover:text-blue-400"
+                  className="hover:text-primary"
                 >
                   {link.name}
                 </a>
