@@ -17,7 +17,7 @@ export default function Footer() {
             <div className="space-y-3">
               <p className="flex items-center">
                 <MapPin className="h-5 w-5 mr-2" />
-                2, Afisman, Ikeja Along, Lagos
+                4-6 Afisman Drive, Ikeja Along, Lagos
               </p>
               <p className="flex items-center">
                 <Phone className="h-5 w-5 mr-2" />

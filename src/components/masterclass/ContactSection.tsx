@@ -13,7 +13,7 @@ export default function ContactSection() {
                 <Phone className="h-6 w-6 text-blue-600 mr-4" />
                 <div>
                   <h3 className="font-semibold">Phone</h3>
-                  <p>08133048918, 08179651769</p>
+                  <p>08030805821</p>
                 </div>
               </div>
               <div className="flex items-center">
@@ -27,7 +27,7 @@ export default function ContactSection() {
                 <MapPin className="h-6 w-6 text-blue-600 mr-4" />
                 <div>
                   <h3 className="font-semibold">Location</h3>
-                  <p>2, Afisman, Ikeja Along, Lagos</p>
+                  <p>4-6 Afisman Drive, Ikeja Along, Lagos</p>
                 </div>
               </div>
             </div>

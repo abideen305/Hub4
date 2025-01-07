@@ -10,7 +10,8 @@ const spaces = [
       { icon: Users, text: "Capacity: 4-12 people" },
       { icon: Monitor, text: "Presentation equipment" },
       { icon: Clock, text: "Hourly booking available" }
-    ]
+    ],
+    location: "4-6 Afisman Drive, Ikeja Along, Lagos"
   },
   {
     title: "Collaborative Workspace",
@@ -20,7 +21,8 @@ const spaces = [
       { icon: Users, text: "Flexible seating" },
       { icon: Coffee, text: "Break-out areas" },
       { icon: Wifi, text: "High-speed internet" }
-    ]
+    ],
+    location: "4-6 Afisman Drive, Ikeja Along, Lagos"
   },
   {
     title: "Training Rooms",
@@ -30,7 +32,8 @@ const spaces = [
       { icon: Users, text: "Capacity: up to 30 people" },
       { icon: Monitor, text: "AV equipment included" },
       { icon: Building2, text: "Configurable layout" }
-    ]
+    ],
+    location: "4-6 Afisman Drive, Ikeja Along, Lagos"
   }
 ];
 
@@ -58,6 +61,10 @@ export default function SpaceOverview() {
                 );
               })}
             </ul>
+            <div className="mt-4 flex items-center text-gray-600">
+              <MapPin className="h-5 w-5 mr-2" />
+              <span>{space.location}</span>
+            </div>
           </div>
         </div>
       ))}

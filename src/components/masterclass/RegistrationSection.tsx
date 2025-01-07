@@ -4,12 +4,12 @@ import FormField from '../common/FormField';
 
 export default function RegistrationSection() {
   const [state, handleSubmit] = useForm("myzzbvoa");
-  const availableDates = [
-    '2025-01-11', '2025-01-18', '2025-01-25',
-    '2025-01-12', '2025-01-19', '2025-01-26'
-  ];
 
   if (state.succeeded) {
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 2000);
+    
     return (
       <div className="text-center p-8 bg-green-50 rounded-lg">
         <h3 className="text-2xl font-semibold text-green-600 mb-4">Registration Successful!</h3>
@@ -78,7 +78,7 @@ export default function RegistrationSection() {
             <button
               type="submit"
               disabled={state.submitting}
-              className="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition duration-300 disabled:opacity-50"
+              className="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300 disabled:opacity-50"
             >
               {state.submitting ? 'Submitting...' : 'Join the Master Class!'}
             </button>
