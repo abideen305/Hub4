@@ -18,9 +18,6 @@ export default function ScheduleSection() {
               <MapPin className="h-6 w-6 text-blue-600" />
               <h3 className="text-2xl font-semibold">Physical Classes (In-Person)</h3>
             </div>
-            <p className="text-center text-gray-600 mb-8">
-              Venue: 2, Afisman, Ikeja Along, Lagos
-            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {physicalClasses.map((classItem, index) => (
                 <ClassCard key={index} {...classItem} />
