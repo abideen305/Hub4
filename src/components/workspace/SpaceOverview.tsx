@@ -1,5 +1,5 @@
 import React from 'react';
-import { Building2, Users, Coffee, Wifi, Monitor, Clock } from 'lucide-react';
+import { Building2, Users, Coffee, Wifi, Monitor, Clock, MapPin } from 'lucide-react';
 
 const spaces = [
   {

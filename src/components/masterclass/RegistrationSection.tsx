@@ -64,6 +64,16 @@ export default function RegistrationSection() {
               <option value="virtual">Virtual (Online)</option>
             </FormField>
             <FormField
+              label="Preferred Session"
+              name="session"
+              as="select"
+              required
+            >
+              <option value="">Select session</option>
+              <option value="morning">Morning Session (11:00 AM)</option>
+              <option value="afternoon">Afternoon Session (2:30 PM)</option>
+            </FormField>
+            <FormField
               label="Preferred Date"
               name="date"
               type="date"
