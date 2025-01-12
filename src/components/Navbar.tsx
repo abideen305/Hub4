@@ -10,7 +10,8 @@ export default function Navbar() {
     { name: 'Training Services', href: '/training' },
     { name: 'Social Media', href: '/social-media' },
     { name: 'Workspace', href: '/workspace' },
-    { name: 'Careers', href: '/careers' }
+    { name: 'Careers', href: '/careers' },
+    { name: 'Career Test', href: '/start-test' }
   ];
 
   return (

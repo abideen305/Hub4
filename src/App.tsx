@@ -1,30 +1,20 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import WhatsAppButton from './components/WhatsAppButton';
 import Home from './pages/Home';
 import Training from './pages/Training';
 import SocialMedia from './pages/SocialMedia';
 import Workspace from './pages/Workspace';
 import Careers from './pages/Careers';
-import MasterClass from './pages/MasterClass';
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
+import Test from './pages/Test';
+import Results from './pages/Results';
+import WhatsAppButton from './components/WhatsAppButton';
 
 export default function App() {
   return (
     <Router>
-      <ScrollToTop />
-      <div className="min-h-screen flex flex-col overflow-x-hidden">
+      <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow">
           <Routes>
@@ -33,7 +23,8 @@ export default function App() {
             <Route path="/social-media" element={<SocialMedia />} />
             <Route path="/workspace" element={<Workspace />} />
             <Route path="/careers" element={<Careers />} />
-            <Route path="/masterclass" element={<MasterClass />} />
+            <Route path="/start-test" element={<Test />} />
+            <Route path="/results" element={<Results />} />
           </Routes>
         </main>
         <Footer />

@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from '@formspree/react';
 import FormField from '../common/FormField';
 
+const courseDates = {
+  'data-engineering': ['2025-01-18', '2025-01-25'],
+  'cybersecurity': ['2025-01-18', '2025-01-25'],
+  'animation': ['2025-01-19', '2025-01-26'],
+  'product-design': ['2025-01-19', '2025-01-26']
+};
+
 export default function RegistrationSection() {
   const [state, handleSubmit] = useForm("myzzbvoa");
+  const [selectedCourse, setSelectedCourse] = useState('');
+  const [availableDates, setAvailableDates] = useState<string[]>([]);
+
+  const handleCourseChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const course = e.target.value;
+    setSelectedCourse(course);
+    setAvailableDates(courseDates[course as keyof typeof courseDates] || []);
+  };
 
   if (state.succeeded) {
     setTimeout(() => {
@@ -46,12 +61,32 @@ export default function RegistrationSection() {
               name="course"
               as="select"
               required
+              onChange={handleCourseChange}
             >
               <option value="">Select a course</option>
               <option value="data-engineering">Data Engineering</option>
-              <option value="animation">Animation</option>
               <option value="cybersecurity">Cybersecurity</option>
+              <option value="animation">Animation</option>
               <option value="product-design">Product Design</option>
+            </FormField>
+            <FormField
+              label="Preferred Date"
+              name="date"
+              type="select"
+              as="select"
+              required
+              disabled={!selectedCourse}
+            >
+              <option value="">Select a date</option>
+              {availableDates.map((date) => (
+                <option key={date} value={date}>
+                  {new Date(date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </option>
+              ))}
             </FormField>
             <FormField
               label="Preferred Mode"
@@ -63,22 +98,6 @@ export default function RegistrationSection() {
               <option value="physical">Physical (In-Person)</option>
               <option value="virtual">Virtual (Online)</option>
             </FormField>
-            <FormField
-              label="Preferred Session"
-              name="session"
-              as="select"
-              required
-            >
-              <option value="">Select session</option>
-              <option value="morning">Morning Session (11:00 AM)</option>
-              <option value="afternoon">Afternoon Session (2:30 PM)</option>
-            </FormField>
-            <FormField
-              label="Preferred Date"
-              name="date"
-              type="date"
-              required
-            />
             <FormField
               label="Additional Information"
               name="message"
