@@ -8,6 +8,7 @@ export default function Navbar() {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Training Services', href: '/training' },
+    { name: 'Master Class', href: '/masterclass' },
     { name: 'Social Media', href: '/social-media' },
     { name: 'Workspace', href: '/workspace' },
     { name: 'Careers', href: '/careers' },

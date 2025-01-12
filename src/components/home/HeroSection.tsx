@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Play } from 'lucide-react';
+import VideoPopup from '../VideoPopup';
 
 export default function HeroSection() {
+  const [showVideo, setShowVideo] = useState(false);
+
   return (
     <div className="relative">
       <div 
@@ -31,27 +35,23 @@ export default function HeroSection() {
               <Link to="/workspace" className="bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition duration-300">
                 Book a Workspace
               </Link>
+              <button
+                onClick={() => setShowVideo(true)}
+                className="flex items-center gap-2 bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300"
+              >
+                <Play className="w-5 h-5" />
+                Watch Intro
+              </button>
             </div>
           </div>
         </div>
       </div>
-      
-      {/* Video Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl">
-          <iframe 
-            width="100%" 
-            height="100%" 
-            src="https://www.youtube.com/embed/7ElHOhu7GgA?si=faBHUCjRboBHwqU3" 
-            title="YouTube video player" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerPolicy="strict-origin-when-cross-origin" 
-            allowFullScreen
-            className="w-full h-full"
-          ></iframe>
-        </div>
-      </div>
+
+      <VideoPopup
+        isOpen={showVideo}
+        onClose={() => setShowVideo(false)}
+        videoId="7ElHOhu7GgA"
+      />
     </div>
   );
 }

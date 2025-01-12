@@ -9,6 +9,7 @@ import Workspace from './pages/Workspace';
 import Careers from './pages/Careers';
 import Test from './pages/Test';
 import Results from './pages/Results';
+import MasterClass from './pages/MasterClass';
 import WhatsAppButton from './components/WhatsAppButton';
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
             <Route path="/careers" element={<Careers />} />
             <Route path="/start-test" element={<Test />} />
             <Route path="/results" element={<Results />} />
+            <Route path="/masterclass" element={<MasterClass />} />
           </Routes>
         </main>
         <Footer />
