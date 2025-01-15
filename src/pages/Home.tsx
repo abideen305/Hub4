@@ -8,6 +8,7 @@ import PartnerSlider from '../components/home/PartnerSlider';
 import WhyChooseUs from '../components/home/WhyChooseUs';
 import Testimonials from '../components/Testimonials';
 import NewsletterSignup from '../components/home/NewsletterSignup';
+import TalentSection from '../components/home/TalentSection';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <FeaturedServices />
       <WhyChooseUs />
       <FeaturedCourses />
+      <TalentSection />
       <BookingSection />
       <PartnerSlider />
       <Testimonials />

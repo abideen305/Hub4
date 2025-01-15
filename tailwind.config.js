@@ -4,26 +4,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#75AFA2',
-        secondary: '#120A56',
+        primary: {
+          DEFAULT: '#0A2342', // Dark Blue (Navy)
+          light: '#133565',
+          dark: '#061529'
+        },
+        secondary: {
+          DEFAULT: '#9FE870', // Light Green (Lime)
+          light: '#B5FF86',
+          dark: '#8ACF5E'
+        }
       },
       fontFamily: {
         bricolage: ['Bricolage Grotesque', 'system-ui', 'sans-serif'],
         raleway: ['Raleway', 'system-ui', 'sans-serif'],
-      },
-      backgroundColor: {
-        'primary-light': '#8BBEB3',
-        'primary-dark': '#5E8C81',
-        'secondary-light': '#1B1066',
-        'secondary-dark': '#0A0640',
-      },
-      textColor: {
-        'primary-dark': '#5E8C81',
-        'secondary-dark': '#0A0640',
-      },
-      borderColor: {
-        'primary-light': '#8BBEB3',
-        'primary-dark': '#5E8C81',
       }
     },
   },

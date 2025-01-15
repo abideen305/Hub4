@@ -21,6 +21,10 @@ export const questions = [
           {
             text: "Creating visually stunning animations and graphics",
             value: "animation"
+          },
+          {
+            text: "Ensuring software functions correctly by testing it for bugs and defects",
+            value: "testing"
           }
         ]
       },
@@ -42,6 +46,10 @@ export const questions = [
           {
             text: "Animating characters for a video game or movie",
             value: "animation"
+          },
+          {
+            text: "Testing a new application to ensure it works smoothly and is free of errors",
+            value: "testing"
           }
         ]
       }
@@ -55,7 +63,7 @@ export const questions = [
         question: "How comfortable are you with writing code or scripts?",
         options: [
           {
-            text: "Very comfortable, especially with data-focused languages",
+            text: "Very comfortable, especially with data-focused languages like SQL or Python",
             value: "data"
           },
           {
@@ -63,17 +71,21 @@ export const questions = [
             value: "security"
           },
           {
-            text: "Somewhat comfortable, mainly for designing interfaces",
+            text: "Somewhat comfortable, mainly for designing interfaces and front-end work",
             value: "design"
           },
           {
             text: "I'm more focused on visual creativity and storytelling",
             value: "animation"
+          },
+          {
+            text: "Comfortable with scripting or writing automation tests",
+            value: "testing"
           }
         ]
       },
       {
-        question: "How well do you understand concepts like networks and digital security?",
+        question: "How well do you understand concepts like networks, encryption, and digital security?",
         options: [
           {
             text: "I have a basic understanding, but it's not my main interest",
@@ -90,6 +102,10 @@ export const questions = [
           {
             text: "I'm more interested in creative fields, not security",
             value: "animation"
+          },
+          {
+            text: "I'm more interested in ensuring applications work as expected",
+            value: "testing"
           }
         ]
       }
@@ -117,6 +133,35 @@ export const questions = [
           {
             text: "Look for ways to tell a story visually or express creatively",
             value: "animation"
+          },
+          {
+            text: "Reproduce the problem, document it, and find solutions",
+            value: "testing"
+          }
+        ]
+      },
+      {
+        question: "How do you feel about working with complex data sets?",
+        options: [
+          {
+            text: "I enjoy it and find it fascinating to uncover insights from data",
+            value: "data"
+          },
+          {
+            text: "I'm okay with it if it helps me understand system vulnerabilities",
+            value: "security"
+          },
+          {
+            text: "I'm more interested in how the data affects the user interface",
+            value: "design"
+          },
+          {
+            text: "I'd prefer to focus on visual creation",
+            value: "animation"
+          },
+          {
+            text: "I'm comfortable using data to create test scenarios",
+            value: "testing"
           }
         ]
       }
@@ -144,6 +189,35 @@ export const questions = [
           {
             text: "Creating animation sequences or character designs",
             value: "animation"
+          },
+          {
+            text: "Testing software thoroughly to ensure quality",
+            value: "testing"
+          }
+        ]
+      },
+      {
+        question: "How do you feel about the balance between creativity and technical work?",
+        options: [
+          {
+            text: "I'm more drawn to technical, data-driven tasks",
+            value: "data"
+          },
+          {
+            text: "I like technical work but with a focus on security",
+            value: "security"
+          },
+          {
+            text: "I enjoy creative work balanced with understanding user needs",
+            value: "design"
+          },
+          {
+            text: "I prefer a fully creative role with minimal technical work",
+            value: "animation"
+          },
+          {
+            text: "I enjoy the technical aspects of testing and quality assurance",
+            value: "testing"
           }
         ]
       }
@@ -171,6 +245,10 @@ export const questions = [
           {
             text: "Developing animations that bring their vision to life",
             value: "animation"
+          },
+          {
+            text: "Ensuring their product works flawlessly through testing",
+            value: "testing"
           }
         ]
       }

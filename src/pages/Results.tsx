@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useLocation, Navigate } from 'react-router-dom';
+import { useLocation, Navigate, useNavigate } from 'react-router-dom';
 import { calculateResults } from '../utils/testResults';
 import { Send } from 'lucide-react';
 
 export default function Results() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -21,6 +22,30 @@ export default function Results() {
     setIsSubmitting(true);
     
     try {
+      const formattedResults = Object.entries(results)
+        .map(([career, score]) => `${career}: ${Math.round(score)}%`)
+        .join('\n');
+
+      const emailBody = `
+Dear Candidate,
+
+Thank you for completing the Tech Career Test. Here are your results:
+
+${formattedResults}
+
+Based on your responses, you show the strongest aptitude for ${topCareer[0]} with a score of ${Math.round(topCareer[1])}%.
+
+Next Steps:
+1. Explore our training programs in ${topCareer[0]}
+2. Book a consultation with our career advisors
+3. Check out our upcoming masterclasses
+
+Visit hub4.org to learn more about our programs and start your journey in ${topCareer[0]}.
+
+Best regards,
+Hub4 Team
+      `;
+
       const response = await fetch('https://formspree.io/f/mvggdnwg', {
         method: 'POST',
         headers: {
@@ -28,14 +53,16 @@ export default function Results() {
         },
         body: JSON.stringify({
           email,
-          results,
-          topCareer: topCareer[0],
-          _subject: 'Tech Career Test Results',
+          message: emailBody,
+          _subject: 'Your Tech Career Test Results',
         }),
       });
 
       if (response.ok) {
         setIsSubmitted(true);
+        setTimeout(() => {
+          navigate('/');
+        }, 2000);
       } else {
         throw new Error('Failed to send results');
       }

@@ -11,6 +11,11 @@ import Test from './pages/Test';
 import Results from './pages/Results';
 import MasterClass from './pages/MasterClass';
 import WhatsAppButton from './components/WhatsAppButton';
+import DataEngineering from './pages/courses/DataEngineering';
+import CyberSecurity from './pages/courses/CyberSecurity';
+import ProductDesign from './pages/courses/ProductDesign';
+import Animation from './pages/courses/Animation';
+import SoftwareTesting from './pages/courses/SoftwareTesting';
 
 export default function App() {
   return (
@@ -27,6 +32,11 @@ export default function App() {
             <Route path="/start-test" element={<Test />} />
             <Route path="/results" element={<Results />} />
             <Route path="/masterclass" element={<MasterClass />} />
+            <Route path="/courses/data-engineering" element={<DataEngineering />} />
+            <Route path="/courses/cyber-security" element={<CyberSecurity />} />
+            <Route path="/courses/product-design" element={<ProductDesign />} />
+            <Route path="/courses/animation" element={<Animation />} />
+            <Route path="/courses/software-testing" element={<SoftwareTesting />} />
           </Routes>
         </main>
         <Footer />
